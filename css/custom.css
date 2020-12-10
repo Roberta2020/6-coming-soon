@@ -63,7 +63,50 @@ main p > a {
 main p > a:hover {
     text-decoration: underline;
 }
+
 /* footer */
 footer.container {
     padding-top: 0;
+    text-align: center;
+}
+footer img {
+    margin-bottom: 20px;
+    height: 40px;
+} 
+footer a {
+    color: #fff;
+    text-decoration: none;
+} 
+footer p {
+    display: inline-block;
+    width: 100%;
+    font-size: 18px;
+    line-height: 25px;
+    color:#fff9 ;
+} 
+footer p > span {
+    padding: 0 10px;
+    position: relative;
+}
+footer p > span + span::before {
+    content: '';
+    height: 15px;
+    width: 1px;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    transform: translateY(-50%);
+    }
+
+@media (max-width: 640px) {
+    footer p > span {
+        display: inline-block;
+        width: 100%;
+        }
+    
+        footer p > span + span::before {
+            display: none;
+            }
 }
