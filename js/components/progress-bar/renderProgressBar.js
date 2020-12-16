@@ -1,19 +1,25 @@
-import { isValidInput } from './isValidInput.js'
+import { isValidInput } from './isValidInput.js';
 import { isValidProgressBar } from './isValidProgressBar.js';
 
 
-function renderProgressBar (selector, data) {
+function renderProgressBar(selector, data) {
 
 // INPUT VALIDATION
 if (!isValidInput(selector, data)) {
     return false;
 }
 
+    //RANDAME VIETA KUR REIKES PADEETI TURINI
+    const DOM = document.querySelector(selector);
+    if (!DOM) {
+    return false;
+    }
+
     // TURINIO GENERAVIMAS
     let HTML = '';                           
     for (let i = 0; i < data.length; i++) {
         const bar = data[i];
-        if (isValidProgressBar(bar)) {
+        if (!isValidProgressBar(bar)) {
             continue;
         }
 
@@ -36,12 +42,5 @@ if (HTML === '') {
 DOM.innerHTML += HTML;
     return true;
     }
-
-    //RANDAME VIETA KUR REIKES PADEETI TURINI
-    const DOM = document.querySelector(selector);
-    if (!DOM) {
-    return false;
-    }
-
     
 export { renderProgressBar }
