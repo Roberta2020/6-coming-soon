@@ -42,5 +42,5 @@ if (HTML === '') {
 DOM.innerHTML += HTML;
     return true;
     }
-    
+   
 export { renderProgressBar }

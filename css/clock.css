@@ -6,6 +6,7 @@
         .clock > .time {
             display: inline-block;
             width: 100%;
+            color: #fff;
         }
         .clock > .time > .value {
             display: inline-block;
