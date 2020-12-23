@@ -17,11 +17,12 @@ class Validator {
 
     static isValidEmail(email) {
         //turi buti ne tuscias tekstas
-        const b = Validator.notEmptyString(email);
-        if(b !== true) {
-            return b;
-        }
+        const notEmptyString = Validator.notEmptyString(email);
+        if(notEmptyString !== true) return notEmptyString;
+
         //ne trumpesnis nei 6 simboliai
+
+
         // tik 1 @ simboolis
         // pries @ turi buti ne maziau 1 simbolis
         // uz @ turi buti ne maziau 5 simboliai
@@ -54,8 +55,32 @@ class Validator {
 
 
     static onlyAlphabet(text) {
+        const abc = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+        return Validator.onlyAllowedSymbols(text, abc);
+    }
+
+    static onlyNumbers(text) {
+        const abc = '7894561230';
+        return Validator.onlyAllowedSymbols(text, abc);
+    }
+    static onlyAllowedSymbols(text, allowedSymbols) {
+        for (let t of text) {
+            let singleAllowedTextSymbol = false;
+            for (let a of allowedSymbols) {
+                if (a === t) {
+                    singleAllowedTextSymbol = true; 
+                    break;
+                }
+            }
+            //jei bent viena text raide yra neleistina, tai radom kritine klaida
+            if(!singleAllowedTextSymbol) {
+                return `Rastas neleistinas "${t}" simbolis.`;
+            }
+        }
         return true;
     }
+
+
     static onlyFirstLetterUppercase(text) {
         // aaBasaa -> aabasaa -> Aabasaa false
         // aaaaaBa -> aaaaaba -> Aaaaaba false
