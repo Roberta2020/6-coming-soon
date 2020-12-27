@@ -1,4 +1,5 @@
 class Validator {
+
     static isValidName(name) {
         //turi buti ne tuscias tekstas
         const notEmptyString = Validator.notEmptyString(name);
@@ -21,7 +22,7 @@ class Validator {
         if(notEmptyString !== true) return notEmptyString;
 
         //ne trumpesnis nei 6 simboliai
-
+    
 
         // tik 1 @ simboolis
         // pries @ turi buti ne maziau 1 simbolis
@@ -32,6 +33,7 @@ class Validator {
         console.log('validuojame email:', email);
         return true;
     }
+
     static isValidMessage(message) {
         //turi buti ne tuscias tekstas
         if(typeof message === '') {
@@ -41,7 +43,8 @@ class Validator {
         console.log('validuojame message:', message);
         return true;
     }
-
+//-----------------------------------------------------------------------
+//------------------------------------------------------------------------
     static notEmptyString(text) {
         if(typeof text !== 'string') {
             return 'Turi buti tekstas.';
@@ -52,8 +55,6 @@ class Validator {
         return true;
     }
 
-
-
     static onlyAlphabet(text) {
         const abc = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
         return Validator.onlyAllowedSymbols(text, abc);
@@ -63,6 +64,7 @@ class Validator {
         const abc = '7894561230';
         return Validator.onlyAllowedSymbols(text, abc);
     }
+
     static onlyAllowedSymbols(text, allowedSymbols) {
         for (let t of text) {
             let singleAllowedTextSymbol = false;
@@ -79,7 +81,6 @@ class Validator {
         }
         return true;
     }
-
 
     static onlyFirstLetterUppercase(text) {
         // aaBasaa -> aabasaa -> Aabasaa false
